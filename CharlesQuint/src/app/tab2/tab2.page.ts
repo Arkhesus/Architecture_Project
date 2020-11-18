@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { NavController } from '@ionic/angular';
+import { getLocaleTimeFormat } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +12,36 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  teams: Observable<any[]>;
+  bool: boolean;
 
+  constructor( public navCtrl : NavController, public firestore : AngularFirestore) {
+    console.log('Je m initialise');
+    this.getInfo(firestore, "equipes");
+
+    // const name: string = this.activatedRouter.snapshot.paramMap.get('name');
+    // console.log(name);
+
+
+
+
+  }
+
+  getInfo(firestore, field){
+    this.teams = firestore.collection(field).valueChanges();
+    console.log(this.teams);
+
+    if(this.teams){
+      this.bool = true;
+    }
+    else {
+      this.bool = false;
+    }
+  }
+
+  goTo(team){
+    this.navCtrl.navigateForward('match/' + team );
+  }
 }
+
+
