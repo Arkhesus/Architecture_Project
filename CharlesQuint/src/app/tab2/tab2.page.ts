@@ -33,9 +33,11 @@ export class Tab2Page {
 
     if(this.teams){
       this.bool = true;
+      return this.bool;
     }
     else {
       this.bool = false;
+      return this.bool;
     }
   }
 
