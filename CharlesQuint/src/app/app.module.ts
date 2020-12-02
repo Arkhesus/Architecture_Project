@@ -18,6 +18,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { EmailComposer} from '@ionic-native/email-composer/ngx';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { NavController } from '@ionic/angular';
 
 
 export const firebaseConfig = {
@@ -44,7 +46,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [
     StatusBar,
@@ -54,6 +56,8 @@ export const firebaseConfig = {
     EmailComposer,
     PreviewAnyFile,
     Toast,
+    AngularFirestore,
+    NavController,
   ],
   bootstrap: [AppComponent]
 })

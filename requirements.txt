@@ -1,0 +1,16 @@
+- Install cordova
+	* npm i -g cordova
+- Angular fire
+	* npm install firebase @angular/fire
+- Inapp Browser
+	* ionic cordova plugin add cordova-plugin-inappbrowser
+	* npm install @ionic-native/in-app-browser
+- Email composer
+	* ionic cordova plugin add cordova-plugin-email-composer
+	* npm install @ionic-native/email-composer
+- Toast
+	* ionic cordova plugin add cordova-plugin-x-toast
+	* npm install @ionic-native/toast
+- Preview any file
+	* ionic cordova plugin add cordova-plugin-preview-any-file
+	* npm install @ionic-native/preview-any-file

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Toast } from '@ionic-native/toast/ngx';
 
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
@@ -15,8 +14,7 @@ export class Tab3Page {
 
   teams: Observable<any[]>;
 
-  constructor(public alertController: AlertController, public navCtrl: NavController, public firestore : AngularFirestore,
-              public toast: Toast) {
+  constructor(public alertController: AlertController, public navCtrl: NavController, public firestore : AngularFirestore) {
     this.getInfo(firestore, 'equipes');
   }
 
@@ -32,10 +30,10 @@ export class Tab3Page {
     }
   }
 
-  async presentAlertPrompt() {
+  async presentAlertPrompt(text = "Accès restreint") {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Accès restreint',
+      header: text,
       inputs: [
 
         {
@@ -61,13 +59,11 @@ export class Tab3Page {
               this.addResultPage();
             }
             else{
-              this.toast.show(`Mot de passe incorrect ou l'accès ne vous y est pas autorisé`, '3000', 'center').subscribe(
-                toast => {
-                  console.log(toast);
-                }
-              );
+              data.header = "Mot de passe refusé"
             }
             console.log('Confirm Ok');
+            console.log(data.header);
+            this.presentAlertPrompt(data.header);
 
           }
         }

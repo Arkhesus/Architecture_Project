@@ -22,13 +22,6 @@ export class Tab5Page implements OnInit {
   getInfo(firestore, field){
     this.liste = firestore.collection(field).valueChanges();
     console.log(this.liste);
-
-    if(this.liste){
-      return true;
-    }
-    else {
-      return false;
-    }
   }
 
   goTo(week){
