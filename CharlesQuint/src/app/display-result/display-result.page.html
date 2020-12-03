@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-icon name="chevron-back-outline" (click)=goBack() ></ion-icon>
+      <ion-title>Par semaine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let match of liste | async">
+      <ion-item>
+        <ion-label><u>{{match.week}}</u> <br> {{match.match}} <br> <b>{{match.score}}</b></ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+      
+        <ion-item-option style="background-color:#3dc2ff" routerLink="/tabs/tab1">Détails</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  
+
+  </ion-list>
+
+
+</ion-content>

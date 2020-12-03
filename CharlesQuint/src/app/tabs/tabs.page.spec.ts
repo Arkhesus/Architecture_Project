@@ -12,6 +12,7 @@ describe('TabsPage', () => {
       declarations: [TabsPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   }));
 
   beforeEach(() => {

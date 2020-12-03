@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-icon name="chevron-back-outline" (click)=goBack()></ion-icon>
+      <ion-title>Selectionner l'équipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let member of liste | async" (click) = onClick(member)>
+      <ion-label>{{member.Prenom}}</ion-label>
+      <ion-checkbox slot="end"></ion-checkbox>
+    </ion-item>
+
+  <ion-button expand="full" color='secondary' (click)="Update()"> Confirmer</ion-button>
+      <!-- <ion-label>{{entry.val}}</ion-label> -->
+
+  </ion-list>
+
+</ion-content>

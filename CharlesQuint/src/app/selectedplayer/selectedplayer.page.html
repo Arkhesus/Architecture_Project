@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" (click)="goBack()" ></ion-icon>
+    <ion-title>Joueurs sélectionnés</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ resultArr[1] }}</ion-card-title>
+      <ion-card-subtitle>{{ resultArr[0] }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ resultArr[2] }} <br>
+      {{ resultArr[3] }} <br>
+      {{ resultArr[4] }} <br>
+      {{ resultArr[5] }} <br>
+
+      
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

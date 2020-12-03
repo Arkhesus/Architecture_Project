@@ -1,0 +1,40 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" routerLink="../../tabs/tab4" routerLinkActive="router-link-active" ></ion-icon>
+    <ion-title>Détails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ resultArr[0] }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <b>Contact :</b> <br>
+      <u>President :</u> {{ resultArr[1]}} <br>
+      <u>Secrétaire :</u> {{resultArr[2]}} <br> <br>
+
+      <b>Adresse :</b> <br>
+      <ion-label><u>Local n°1 :</u>{{ resultArr[3]}}</ion-label><br>
+      <ion-button expand='full' (click)='OpenPage(url1)' color='secondary'>Y aller</ion-button><br>
+
+
+      <div *ngIf='display'>
+  
+        <ion-label><u>Local n°2 :</u>{{ resultArr[4]}}</ion-label><br>
+        <ion-button expand='full' (click)='OpenPage(url2)' color='secondary'>Y aller</ion-button><br>
+      </div>
+      
+
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+</ion-content>
+

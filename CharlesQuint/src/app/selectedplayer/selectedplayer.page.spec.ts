@@ -1,23 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Tab1Page } from './tab1.page';
+import { SelectedplayerPage } from './selectedplayer.page';
 
-
-describe('Tab1Page', () => {
-
-  let component: Tab1Page;
-  let fixture: ComponentFixture<Tab1Page>;
+describe('SelectedplayerPage', () => {
+  let component: SelectedplayerPage;
+  let fixture: ComponentFixture<SelectedplayerPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [Tab1Page],
+      declarations: [ SelectedplayerPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-
-    fixture = TestBed.createComponent(Tab1Page);
+    fixture = TestBed.createComponent(SelectedplayerPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

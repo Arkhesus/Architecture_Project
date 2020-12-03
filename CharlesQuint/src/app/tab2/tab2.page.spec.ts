@@ -24,7 +24,7 @@ describe('Tab2Page', () => {
         routes), AngularFireModule.initializeApp(firebaseConfig)]
     }).compileComponents();
 
-
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
     fixture = TestBed.createComponent(Tab2Page);
     component = fixture.componentInstance;

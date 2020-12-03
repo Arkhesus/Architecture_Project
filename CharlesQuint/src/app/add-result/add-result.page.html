@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-icon name="chevron-back-outline" (click)='goBack()' ></ion-icon>
+      <ion-title>Nouveau résultat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let team of teams | async" (click)=goTo(team.Nom)>
+    <ion-card-header>
+      <ion-card-title>{{ team.Nom }}</ion-card-title>
+      <ion-card-subtitle>{{team.Division }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

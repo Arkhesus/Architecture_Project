@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" (click)="goBack()" ></ion-icon>
+    <ion-title>Présences et absences</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let player of liste | async" >
+      <ion-text>{{player.Prenom}}</ion-text>
+
+      <!-- <ion-segment   class="week" (ionChange)="segmentChanged($event)" value="{{player.${this.}}}"> 
+        <ion-segment-button  class="present" value="present" (click)="change(player/this.match)">
+          <ion-label>Présent</ion-label>
+        </ion-segment-button>
+        <ion-segment-button class="absent" value="absent" (click)="change(player/this.match)">
+          <ion-label>Absent</ion-label>
+        </ion-segment-button>
+      </ion-segment> -->
+
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
+

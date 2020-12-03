@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" (click)=goBack()></ion-icon>
+    <ion-title>Choisissez la semaine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let match of liste | async">
+      <ion-item id="match.match">
+        <ion-label><b>{{match.week}}</b> : <br>{{match.match}} <br> {{match.score}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+      
+        <ion-item-option style="background-color:#3dc2ff" (click)="presentAlertPrompt(match.week)">Score</ion-item-option>
+      </ion-item-options>
+      
+    </ion-item-sliding>
+  
+
+  </ion-list>
+
+</ion-content>

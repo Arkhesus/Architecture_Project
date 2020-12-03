@@ -21,6 +21,8 @@ describe('Tab4Page', () => {
         routes), AngularFireModule.initializeApp(firebaseConfig)]
     }).compileComponents();
 
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
     fixture = TestBed.createComponent(Tab4Page);
     component = fixture.componentInstance;
     fixture.detectChanges();
