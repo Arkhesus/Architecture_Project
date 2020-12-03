@@ -11,35 +11,35 @@ const routes: Routes = [
     loadChildren: () => import('./add-result/add-result.module').then( m => m.AddResultPageModule)
   },
   {
-    path: 'datum',
+    path: 'datum/:week/:player',
     loadChildren: () => import('./datum/datum.module').then( m => m.DatumPageModule)
   },
   {
-    path: 'detail-club',
+    path: 'detail-club/:name',
     loadChildren: () => import('./detail-club/detail-club.module').then( m => m.DetailClubPageModule)
   },
   {
-    path: 'display-result',
+    path: 'display-result/:team',
     loadChildren: () => import('./display-result/display-result.module').then( m => m.DisplayResultPageModule)
   },
   {
-    path: 'match',
+    path: 'match/:team',
     loadChildren: () => import('./match/match.module').then( m => m.MatchPageModule)
   },
   {
-    path: 'newscore',
+    path: 'newscore/:team',
     loadChildren: () => import('./newscore/newscore.module').then( m => m.NewscorePageModule)
   },
   {
-    path: 'player',
+    path: 'player/:team/:week',
     loadChildren: () => import('./player/player.module').then( m => m.PlayerPageModule)
   },
   {
-    path: 'player-absence',
+    path: 'player-absence/:week',
     loadChildren: () => import('./player-absence/player-absence.module').then( m => m.PlayerAbsencePageModule)
   },
   {
-    path: 'selectedplayer',
+    path: 'selectedplayer/:team/:week',
     loadChildren: () => import('./selectedplayer/selectedplayer.module').then( m => m.SelectedplayerPageModule)
   },
 
