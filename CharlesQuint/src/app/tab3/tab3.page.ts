@@ -59,11 +59,12 @@ export class Tab3Page {
               this.addResultPage();
             }
             else{
-              data.header = "Mot de passe refusé"
+              data.header = "Mot de passe refusé";
+              this.presentAlertPrompt(data.header);
             }
             console.log('Confirm Ok');
             console.log(data.header);
-            this.presentAlertPrompt(data.header);
+            
 
           }
         }

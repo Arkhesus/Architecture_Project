@@ -3,22 +3,46 @@ import { IonicModule } from '@ionic/angular';
 
 import { PlayerPage } from './player.page';
 
-describe('PlayerPage', () => {
-  let component: PlayerPage;
-  let fixture: ComponentFixture<PlayerPage>;
+import {RouterTestingModule} from "@angular/router/testing";
+import { RouterModule, Routes } from '@angular/router';
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PlayerPage ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
 
-    fixture = TestBed.createComponent(PlayerPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+import { AngularFireModule} from '@angular/fire';
+import { firebaseConfig } from '../app.module';
+import { AngularFirestore } from '@angular/fire/firestore';
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+// describe('PlayerPage', () => {
+//   let component: PlayerPage;
+//   let fixture: ComponentFixture<PlayerPage>;
+
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ PlayerPage ],
+//       imports: [RouterTestingModule.withRoutes(
+//         routes), AngularFireModule.initializeApp(firebaseConfig)]
+//     }).compileComponents();
+
+//     fixture = TestBed.createComponent(PlayerPage);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   }));
+
+//   jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
+
+const routes: Routes = [
+  {
+    path: '',
+    component: PlayerPage,
+    children: [
+      {
+        path: 'match/:team',
+        loadChildren: () => import('../match/match.module').then( m => m.MatchPageModule)
+      },
+
+    ]}
+  ];

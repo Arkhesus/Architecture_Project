@@ -16,6 +16,7 @@ export class PlayerAbsencePage implements OnInit {
   players = [];
   index:number;
   doc:string;
+  bool: boolean;
 
   constructor(private navCtrl: NavController, public firestore: AngularFirestore, private activatedRouter: ActivatedRoute) {
 
@@ -34,7 +35,6 @@ export class PlayerAbsencePage implements OnInit {
     });
 
   }
-
 
 
 
@@ -84,10 +84,12 @@ export class PlayerAbsencePage implements OnInit {
   goTo(player){
     console.log(player);
     this.navCtrl.navigateForward('datum/' + this.week + '/' + player);
+    return 'datum/' + this.week + '/' + player;
   }
 
   goBack(){
     this.navCtrl.navigateBack('tabs/tab5');
+    return 'tabs/tab5';
   }
 
   Update(name, presence){
@@ -101,6 +103,7 @@ export class PlayerAbsencePage implements OnInit {
 
 
     this.firestore.collection('calendrier').doc(this.doc).update(data);
+    console.log(this.doc);
 
     if( presence === 'absent'){
       console.log("je serai absent");
@@ -110,6 +113,8 @@ export class PlayerAbsencePage implements OnInit {
       const liste = {
         [resume] : 'absent'
       };
+      this.bool = false;
+
 
       this.firestore.collection('absences').doc(this.doc).update(liste);
     }
@@ -120,6 +125,8 @@ export class PlayerAbsencePage implements OnInit {
       const liste = {
         [resume] : ''
       };
+
+      this.bool = true;
 
       this.firestore.collection('absences').doc(this.doc).update(liste);
     }

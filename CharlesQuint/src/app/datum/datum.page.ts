@@ -37,6 +37,7 @@ export class DatumPage implements OnInit {
 
   goBack(){
     this.navCtrl.navigateBack('player-absence/' + this.week);
+    return 'player-absence/' + this.week;
   }
 
   change(value){

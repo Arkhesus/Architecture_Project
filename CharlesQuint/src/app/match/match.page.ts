@@ -4,7 +4,6 @@ import { AlertController, NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Toast } from '@ionic-native/toast/ngx';
 
 @Component({
   selector: 'app-match',
@@ -18,8 +17,7 @@ export class MatchPage implements OnInit {
   versus:string;
 
   constructor(public alertController: AlertController, public navCtrl : NavController, 
-              public firestore: AngularFirestore, private activatedRouter: ActivatedRoute,
-              public toast: Toast) {
+              public firestore: AngularFirestore, private activatedRouter: ActivatedRoute) {
 
     this.team = this.activatedRouter.snapshot.paramMap.get('team');
     console.log(this.team);
@@ -28,7 +26,7 @@ export class MatchPage implements OnInit {
     console.log(this.liste);
   }
 
-  async presentAlertPrompt(week) {
+  async presentAlertPrompt(week, text = "Accès restreint") {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Accès restreint aux sélectionneurs',
@@ -57,13 +55,11 @@ export class MatchPage implements OnInit {
               this.goTo(this.team, week);
             }
             else{
-              this.toast.show(`Mot de passe incorrect ou l'accès ne vous y est pas autorisé`, '3000', 'center').subscribe(
-                toast => {
-                  console.log(toast);  
-                }
-              );
+              data.header = "Mot de passe refusé";
+              this.presentAlertPrompt(week, text = data.header);
             }
             console.log('Confirm Ok');
+            
 
           }
         }
